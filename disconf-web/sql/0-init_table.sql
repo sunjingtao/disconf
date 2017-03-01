@@ -14,6 +14,7 @@ CREATE TABLE `app` (
 CREATE TABLE `config` (
   `config_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '唯一的ID（没有啥意义，主键，自增长而已）',
   `type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '配置文件/配置项',
+  `status` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '状态：1是正常 0是删除',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT '配置文件名/配置项KeY名',
   `value` text NOT NULL COMMENT '0 配置文件：文件的内容，1 配置项：配置值',
   `app_id` bigint(20) NOT NULL COMMENT 'appid',
@@ -59,4 +60,13 @@ CREATE TABLE `user` (
   `role_id` bigint(20) NOT NULL DEFAULT '1' COMMENT '角色ID',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='用户表';
+
+CREATE TABLE `config_history` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `config_id` BIGINT NOT NULL,
+  `old_value` LONGTEXT NOT NULL,
+  `new_value` LONGTEXT NOT NULL,
+  `create_time` VARCHAR(14) NOT NULL DEFAULT '99991231235959',
+  PRIMARY KEY (`id`)
+)DEFAULT CHARSET=utf8 ENGINE=InnoDB;
 
