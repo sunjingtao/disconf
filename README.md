@@ -96,7 +96,7 @@ Disconf的功能特点描述图：
 在您的 Maven POM 文件里加入：
 
     <dependency>
-        <groupId>com.baidu.disconf</groupId>
+        <groupId>com.didashui.disconf</groupId>
         <artifactId>disconf-client</artifactId>
         <version>2.6.34</version>
     </dependency>
