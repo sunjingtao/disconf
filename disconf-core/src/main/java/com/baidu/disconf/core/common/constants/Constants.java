@@ -19,6 +19,7 @@ public class Constants {
     public final static String ENV = "env";
     public final static String KEY = "key";
     public final static String TYPE = "type";
+    public static final String DEFAULT_USE_IP_DEFINE_ENV = "false" ;
 
     /**
      * Disconf-web返回的常量
@@ -38,4 +39,5 @@ public class Constants {
     public final static String ZOO_UPDATE_STRING = "UPDATE-NOTIFYING";
 
     public final static String SEP_STRING = "/";
+
 }

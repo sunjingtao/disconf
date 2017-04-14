@@ -28,6 +28,7 @@ CREATE TABLE `config` (
 CREATE TABLE `env` (
   `env_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '环境ID（主键，自增长）',
   `name` varchar(255) NOT NULL DEFAULT 'DEFAULT_ENV' COMMENT '环境名字',
+  `ip` varchar(255) NOT NULL COMMENT '环境IP',
   PRIMARY KEY (`env_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='rd/qa/local可以自定义，默认为 DEFAULT_ENV';
 

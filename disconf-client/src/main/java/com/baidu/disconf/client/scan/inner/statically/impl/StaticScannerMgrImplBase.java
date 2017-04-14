@@ -3,6 +3,9 @@ package com.baidu.disconf.client.scan.inner.statically.impl;
 import com.baidu.disconf.client.common.model.DisConfCommonModel;
 import com.baidu.disconf.client.config.DisClientConfig;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 /**
  * @author liaoqiqi
  * @version 2014-9-9
@@ -23,7 +26,17 @@ public class StaticScannerMgrImplBase {
         if (!env.isEmpty()) {
             disConfCommonModel.setEnv(env);
         } else {
-            disConfCommonModel.setEnv(DisClientConfig.getInstance().ENV);
+            //如果是根据IP定义环境类型，那么直接获取本地IP即可获取配置文件
+            if(DisClientConfig.getInstance().USE_IP_DEFINE_ENV){
+                try {
+                    disConfCommonModel.setEnv(InetAddress.getLocalHost().getHostAddress());
+                }catch (UnknownHostException ex){
+                    throw new RuntimeException("cann't get ip address to define which env must be used");
+                }
+            }else {
+                disConfCommonModel.setEnv(DisClientConfig.getInstance().ENV);
+            }
+
         }
 
         // version

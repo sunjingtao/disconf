@@ -69,9 +69,8 @@ public class DisInnerConfigHelper {
 
         //
         // 环境
-
-        if (StringUtils.isEmpty(DisClientConfig.getInstance().ENV)) {
-
+        // 如果是通过IP地址获取ENV类型，可以不配置；否则必须配置
+        if(!DisClientConfig.getInstance().USE_IP_DEFINE_ENV && StringUtils.isEmpty(DisClientConfig.getInstance().ENV)) {
             throw new Exception("settings: " + DisClientConfig.ENV_NAME + "  cannot find");
         }
         LOGGER.info("SERVER " + DisClientConfig.ENV_NAME + ": " + DisClientConfig.getInstance().ENV);

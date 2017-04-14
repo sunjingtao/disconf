@@ -127,6 +127,10 @@ public final class DisClientConfig {
     @DisInnerConfigAnnotation(name = DisClientConfig.ENV_NAME, defaultValue = Constants.DEFAULT_ENV)
     public String ENV = Constants.DEFAULT_ENV;
 
+    public static final String USE_IP_DEFINE_ENV_NAME = "disconf.use_ip_define_env";
+    @DisInnerConfigAnnotation(name = DisClientConfig.USE_IP_DEFINE_ENV_NAME,defaultValue = Constants.DEFAULT_USE_IP_DEFINE_ENV)
+    public boolean USE_IP_DEFINE_ENV = Boolean.valueOf(Constants.DEFAULT_USE_IP_DEFINE_ENV);
+
     /**
      * 是否从云端下载配置
      *
